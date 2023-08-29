@@ -22,7 +22,7 @@ TODO
 
 ## Project Documents
 
-All project-related documents are in the [Project Wiki](../../wiki/Home)
+All project-related documents are in the [Project Wiki](../../wiki/Iteration%201%20Plan)
 
 - [Goal](../../wiki/Goal)
 - [Milestone](../../wiki/Milestone)
