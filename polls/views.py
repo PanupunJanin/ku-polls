@@ -51,7 +51,7 @@ class ResultsView(generic.DetailView):
         Return the last five published questions (not including those set to be
         published in the future).
         """
-        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+        return Question.objects.filter(pub_date__lte=timezone.localtime()).order_by('-pub_date')[:5]
 
     def get(self, request, *args, **kwargs):
         """Redirect user to responding pages depend on that poll's status when viewing poll's results"""
@@ -72,9 +72,8 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         messages.error(request, "You didn't select a choice.")
-        return render(request, 'polls/detail.html', {'question': question,})
+        return render(request, 'polls/detail.html', {'question': question, })
     else:
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-

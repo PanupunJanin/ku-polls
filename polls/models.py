@@ -1,7 +1,6 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-from django.contrib import admin
 
 
 class Question(models.Model):
@@ -14,7 +13,6 @@ class Question(models.Model):
         """Return question text description string of each question."""
         return self.question_text
 
-    @admin.display(boolean=True, ordering="pub_date",)
     def was_published_recently(self):
         """Return if the question is published recently(1 day)"""
         now = timezone.localtime()
