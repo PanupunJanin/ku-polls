@@ -7,6 +7,10 @@ from django.contrib import messages
 from .models import Choice, Question
 
 
+def error_404(request, exception):
+    return render(request,'polls/index.html')
+
+
 class IndexView(generic.ListView):
     """Index view page of this application."""
     template_name = 'polls/index.html'
