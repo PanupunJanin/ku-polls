@@ -55,5 +55,6 @@ All project-related documents are in the [Project Wiki](../../wiki/Home)
 - [Requirements](../../wiki/Requirements)
 - [Development Plan](../../wiki/Development%20Plan)
 - [Iteration 1 Plan](../../wiki/Iteration%201%20Plan) and [Task Board](../../projects/1)
+- [Iteration 2 Plan](../../wiki/Iteration%202%20Plan) and [Task Board](../../projects/2)
 
 [django-tutorial]: https://docs.djangoproject.com/en/3.1/intro/tutorial01/
