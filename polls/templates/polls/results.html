@@ -1,9 +1,17 @@
-<h1>{{ question.question_text }}</h1>
+{% load static %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+<html lang="en">
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    <body>
+        <h1>{{ question.question_text }}</h1>
+        <h2>Voting Results</h2>
+        <ul>
+            {% for choice in question.choice_set.all %}
+                <li>{{ choice.choice_text }}: {{ choice.votes }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'polls:index' %}"><button>Back to polls list</button></a>
+    </body>
+</html>

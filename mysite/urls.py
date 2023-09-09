@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import RedirectView
+from polls import views
+
+
+handler404 = views.error_404
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='polls')),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
 ]
