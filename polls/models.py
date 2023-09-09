@@ -18,18 +18,6 @@ class Question(models.Model):
         now = timezone.localtime()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
-    def is_published(self):
-        """Return if the question is published or not."""
-        now = timezone.localtime()
-        return self.pub_date <= now
-
-    def can_vote(self):
-        """Return if voting is allowed or not."""
-        now = timezone.localtime()
-        if self.end_date is None:
-            return self.pub_date <= now
-        return self.pub_date <= now <= self.end_date
-
 
 class Choice(models.Model):
     """Choice model for each question"""

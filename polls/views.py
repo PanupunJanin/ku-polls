@@ -28,18 +28,6 @@ class DetailView(generic.DetailView):
         """
         return Question.objects.filter(pub_date__lte=timezone.localtime())
 
-    def get(self, request, *args, **kwargs):
-        """Redirect user to responding pages depend on that poll's status when viewing poll's details"""
-        try:
-            question = get_object_or_404(Question, pk=kwargs["pk"])
-        except (KeyError, Question.DoesNotExist):
-            messages.error(request, 'Requested poll does not exist')
-            return HttpResponseRedirect(reverse('polls:index'))
-        if not question.can_vote():
-            messages.error(request, 'You cannot vote on unpublished or ended poll')
-            return HttpResponseRedirect(reverse('polls:index'))
-        return render(request, 'polls/detail.html', {'question': question})
-
 
 class ResultsView(generic.DetailView):
     """Results view page of this application."""
@@ -53,20 +41,9 @@ class ResultsView(generic.DetailView):
         """
         return Question.objects.filter(pub_date__lte=timezone.localtime()).order_by('-pub_date')[:5]
 
-    def get(self, request, *args, **kwargs):
-        """Redirect user to responding pages depend on that poll's status when viewing poll's results"""
-        try:
-            question = get_object_or_404(Question, pk=kwargs["pk"])
-        except (KeyError, Question.DoesNotExist):
-            messages.error(request, 'Requested poll does not exist')
-            return HttpResponseRedirect(reverse('polls:index'))
-        if not question.is_published():
-            messages.error(request, 'This poll is not published yet')
-            return HttpResponseRedirect(reverse('polls:index'))
-        return render(request, 'polls/results.html', {'question': question})
-
 
 def vote(request, question_id):
+    """Voting method in each poll"""
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
