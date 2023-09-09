@@ -3,9 +3,9 @@ name: Unit tests
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 env:
   SECRET_KEY: secret-key
@@ -33,4 +33,4 @@ jobs:
         pip install -r requirements.txt
     - name: Test with unittest
       run: |
-        python manage.py test polls
+        python manage.py test
