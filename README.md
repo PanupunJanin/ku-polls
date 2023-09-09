@@ -1,3 +1,5 @@
+[![Unit tests](https://github.com/PanupunJanin/ku-polls/actions/workflows/python-app.yml/badge.svg)](https://github.com/PanupunJanin/ku-polls/actions/workflows/python-app.yml)
+
 # Web Polls for Kasetsart University
 
 An application for conducting a poll or survey with multiple-choice questions, written in Python using Django. It is based on the [Django tutorial project][django-tutorial], and adds additional functionality.
