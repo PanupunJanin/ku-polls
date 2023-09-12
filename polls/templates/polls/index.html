@@ -11,7 +11,11 @@
                 </div>
             {% endfor %}
         {% endif %}
-
+        {% if user.is_authenticated %}
+            <p>Welcome back, {{ user.username }}</p>
+        {% else %}
+            Please <a href="{% url 'login' %}">Login</a> to vote
+        {% endif %}
         <h1>List of KU-Polls Questions</h1>
         {% if latest_question_list %}
             <ul>
