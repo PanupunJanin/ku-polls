@@ -19,7 +19,7 @@
                     <br>
                 {% endfor %}
             </fieldset>
-            <input type="submit">
+            <button type="submit">Vote</button>
         </form>
         <a href="{% url 'polls:index' %}"><button>Back to List of Polls</button></a>
         <a href="{% url 'polls:results' question.id %}"><button>See Result</button></a>
