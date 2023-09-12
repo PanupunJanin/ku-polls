@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from .models import Choice, Question
+from .models import Choice, Question, Vote
 
 
 def error_404(request, exception):
@@ -108,6 +108,12 @@ def vote(request, question_id):
     except (KeyError, Choice.DoesNotExist):
         messages.error(request, "You didn't select a choice.")
         return render(request, 'polls/detail.html', {'question': question, })
-    selected_choice.votes += 1
-    selected_choice.save()
+    this_user = request.user
+    try:
+        current_vote = Vote.objects.get(user=this_user, choice__question=question)
+        current_vote.choice = selected_choice
+    except Vote.DoesNotExist:
+        current_vote = Vote(user=this_user, choice=selected_choice)
+    current_vote.save()
+    messages.success(request, "Your vote has been recorded")
     return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
