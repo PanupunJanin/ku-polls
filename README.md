@@ -58,5 +58,6 @@ All project-related documents are in the [Project Wiki](https://github.com/Panup
 - [Development Plan](https://github.com/PanupunJanin/ku-polls/wiki/Development-Plan)
 - [Iteration 1 Plan](https://github.com/PanupunJanin/ku-polls/wiki/Iteration-1-Plan) and [Task Board](https://github.com/users/PanupunJanin/projects/1))
 - [Iteration 2 Plan](https://github.com/PanupunJanin/ku-polls/wiki/Iteration-2-Plan) and [Task Board](https://github.com/users/PanupunJanin/projects/2))
+- [Iteration 3 Plan](https://github.com/PanupunJanin/ku-polls/wiki/Iteration-3-Plan) and [Task Board](https://github.com/users/PanupunJanin/projects/3))
 
 [django-tutorial]: https://docs.djangoproject.com/en/3.1/intro/tutorial01/
