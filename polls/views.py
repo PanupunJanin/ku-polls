@@ -19,7 +19,7 @@ def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if not form.is_valid():
-            messages.error(request, 'The form is invalid')
+            messages.error(request, 'The form is invalid, your username or password may not be with the rules')
             return redirect('signup')
         if form.is_valid():
             form.save()
@@ -29,9 +29,7 @@ def signup(request):
             raw_passwd = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_passwd)
             login(request, user)
-        return redirect('polls')
-        # what if form is not valid?
-        # we should display a message in signup.html
+        return redirect('polls:index')
     else:
         # create a user form and display it the signup page
         form = UserCreationForm()
