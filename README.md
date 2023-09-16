@@ -47,7 +47,12 @@ TODO
 
 ## Demo User Accounts
 
-TODO
+| Username | Password |
+|----------|----------|
+| harry    | h477y123 |
+| potter   | p011e722 |
+
+
 
 ## Project Documents
 
