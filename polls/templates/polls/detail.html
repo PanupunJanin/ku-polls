@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
     <body>
+    {% if user.is_authenticated %}
+        <p>You are currently logging in as {{ user.username }}, <a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        Please <a href="{% url 'login' %}">Login</a> before being able to vote
+    {% endif %}
         <form action="{% url 'polls:vote' question.id %}" method="post">
             {% csrf_token %}
             <fieldset>
@@ -14,12 +19,15 @@
                     {% endfor %}
                 {% endif %}
                 {% for choice in question.choice_set.all %}
+                {% if choice == selected_choice %}
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" checked>
+                {% else %}
                     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
-                    <br>
-                {% endfor %}
+                {% endif %}
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+        {% endfor %}
             </fieldset>
-            <input type="submit">
+            <button type="submit">Vote</button>
         </form>
         <a href="{% url 'polls:index' %}"><button>Back to List of Polls</button></a>
         <a href="{% url 'polls:results' question.id %}"><button>See Result</button></a>

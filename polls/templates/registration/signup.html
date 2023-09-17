@@ -1,0 +1,21 @@
+<html lang="en">
+<h2>Register</h2>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                <div role="alert" style="color: orangered;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+<form method="POST">
+    {% csrf_token %}
+    <table style="padding: 2ex;">
+    {{ form.as_table }}     {# this line shows the sign-up form #}
+    <tr>
+    <td colspan="2">
+    <button type="submit">Register</button>
+    </td>
+    </tr>
+    </table>
+</form>

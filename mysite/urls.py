@@ -25,5 +25,7 @@ handler404 = views.error_404
 urlpatterns = [
     path('', RedirectView.as_view(url='polls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', views.signup, name='signup'),
     path('polls/', include('polls.urls')),
 ]
