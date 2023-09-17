@@ -11,7 +11,7 @@ from .models import Choice, Question, Vote
 
 
 def error_404(request, exception):
-    return render(request,'polls/index.html')
+    return render(request, 'polls/index.html')
 
 
 def signup(request):
@@ -67,7 +67,17 @@ class DetailView(generic.DetailView):
         if not question.can_vote():
             messages.error(request, 'You cannot vote on unpublished or ended poll')
             return HttpResponseRedirect(reverse('polls:index'))
-        return render(request, 'polls/detail.html', {'question': question})
+        this_user = request.user
+        if not this_user.is_authenticated:
+            return redirect('login')
+        try:
+            current_vote = Vote.objects.get(user=this_user, choice__question=question)
+            selected_choice = current_vote.choice
+        except Vote.DoesNotExist:
+            selected_choice = ''
+        return render(request, 'polls/detail.html', {
+            'question': question,
+            'selected_choice': selected_choice})
 
 
 class ResultsView(generic.DetailView):
