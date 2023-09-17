@@ -1,4 +1,4 @@
-[![Unit tests](https://github.com/PanupunJanin/ku-polls/actions/workflows/python-app.yml/badge.svg)](https://github.com/PanupunJanin/ku-polls/actions/workflows/python-app.yml)
+[![Unit tests](https://github.com/PanupunJanin/ku-polls/actions/workflows/django.yml/badge.svg)](https://github.com/PanupunJanin/ku-polls/actions/workflows/django.yml)
 
 # Web Polls for Kasetsart University
 
