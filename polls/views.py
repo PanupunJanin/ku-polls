@@ -71,8 +71,8 @@ class DetailView(generic.DetailView):
         if not this_user.is_authenticated:
             return redirect('login')
         try:
-            current_vote = Vote.objects.get(user=this_user, choice__question=question)
-            selected_choice = current_vote.choice
+            past_vote = Vote.objects.get(user=this_user, choice__question=question)
+            selected_choice = past_vote.choice
         except Vote.DoesNotExist:
             selected_choice = ''
         return render(request, 'polls/detail.html', {
