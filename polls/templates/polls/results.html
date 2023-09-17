@@ -9,6 +9,11 @@
         {% else %}
             Please <a href="{% url 'login' %}">Login</a> before being able to vote
         {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: orangered;"><strong>{{ message }}</strong></p>
+            {% endfor %}
+        {% endif %}
         <h1>{{ question.question_text }}</h1>
         <h2>Voting Results</h2>
         <ul>
