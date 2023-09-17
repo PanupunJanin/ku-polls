@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
     <body>
+    {% if user.is_authenticated %}
+        <p>You are currently logging in as {{ user.username }}, <a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        Please <a href="{% url 'login' %}">Login</a> before being able to vote
+    {% endif %}
         <form action="{% url 'polls:vote' question.id %}" method="post">
             {% csrf_token %}
             <fieldset>
