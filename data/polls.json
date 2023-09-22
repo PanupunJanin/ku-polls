@@ -12,8 +12,17 @@
   "model": "polls.question",
   "pk": 2,
   "fields": {
-    "question_text": "What subject is the hardest for you?",
+    "question_text": "What subject is the hardest in your opinion?",
     "pub_date": "2023-09-03T06:20:49Z",
+    "end_date": null
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 3,
+  "fields": {
+    "question_text": "Which iteration of KU-Polls is the most time consuming for you?",
+    "pub_date": "2023-09-19T10:23:31Z",
     "end_date": null
   }
 },
@@ -95,6 +104,94 @@
   "fields": {
     "question": 2,
     "choice_text": "Probstat"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 11,
+  "fields": {
+    "question": 2,
+    "choice_text": "Discrete Math"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 12,
+  "fields": {
+    "question": 2,
+    "choice_text": "Programming1"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 13,
+  "fields": {
+    "question": 2,
+    "choice_text": "Programming2"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 14,
+  "fields": {
+    "question": 3,
+    "choice_text": "Iteration 1"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 15,
+  "fields": {
+    "question": 3,
+    "choice_text": "Iteration 2"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 16,
+  "fields": {
+    "question": 3,
+    "choice_text": "Iteration 3"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 17,
+  "fields": {
+    "question": 3,
+    "choice_text": "Iteration 4"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 18,
+  "fields": {
+    "question": 1,
+    "choice_text": "Sweetened Milk"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 19,
+  "fields": {
+    "question": 1,
+    "choice_text": "Plain Water"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 20,
+  "fields": {
+    "question": 1,
+    "choice_text": "Mineral Water"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 21,
+  "fields": {
+    "question": 1,
+    "choice_text": "Coffee"
   }
 },
 {
