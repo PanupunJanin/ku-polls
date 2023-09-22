@@ -75,3 +75,14 @@ Install all provided polls data which include questions, choices, and users.
     ```
     python manage.py loaddata data/users.json
     ```
+  
+## (Optional) Run tests
+Run all tests created for this application
+* For Windows
+    ```
+    python manage.py test
+    ```
+* For MacOS
+    ```
+    python3 manage.py test
+    ```
